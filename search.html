@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пошук — CinemaUA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="icon-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+</svg>
+
+<!-- HEADER COMPONENT -->
+<div id="header-component"></div>
+
+<main class="main">
+  <div class="container py-6 space-y-6">
+    <div style="max-width:42rem;margin:0 auto">
+      <form action="search.html" method="get" class="search-bar-wrap">
+        <svg><use href="#icon-search"/></svg>
+        <input type="text" name="q" value="Дюна" class="search-input-lg" placeholder="Пошук фільмів, серіалів..." autofocus>
+      </form>
+    </div>
+
+    <div class="space-y-4">
+      <h1 style="font-size:1.125rem;font-weight:700;color:var(--fg)">
+        Результати пошуку за запитом "Дюна"
+        <span style="font-weight:400;font-size:0.875rem;color:var(--muted-fg);margin-left:0.5rem">(2)</span>
+      </h1>
+
+      <div class="movie-grid">
+        <a href="movie.html?id=1" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg" alt="Дюна: Частина друга" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">1080p</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 8.5</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info"><h3 class="movie-card-title line-clamp-2">Дюна: Частина друга</h3><div class="movie-card-meta"><span>2024</span><span class="dot">&middot;</span><span>Фантастика</span></div></div>
+        </a>
+        <a href="movie.html?id=15" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" alt="Дюна" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">4K</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 8.0</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info"><h3 class="movie-card-title line-clamp-2">Дюна</h3><div class="movie-card-meta"><span>2021</span><span class="dot">&middot;</span><span>Фантастика</span></div></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER COMPONENT -->
+<div id="footer-component"></div>
+
+<script src="js/components.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

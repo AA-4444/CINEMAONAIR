@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CINEMAONAIR — Дивитись фільми та серіали онлайн</title>
+  <meta name="description" content="Дивіться найновіші фільми, серіали, мультфільми та аніме онлайн в HD якості">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!--  SVG иконки  -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+  <symbol id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="icon-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+  <symbol id="icon-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+</svg>
+
+<!-- HEADER  -->
+<div id="header-component"></div>
+
+<main class="main">
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-img" src="https://image.tmdb.org/t/p/original/628Dep6AxEtDxjZoGP78TsOxYbK.jpg" alt="Дюна: Частина друга">
+    <div class="hero-overlay-lr"></div>
+    <div class="hero-overlay-bt"></div>
+    <div class="hero-content">
+      <div class="container">
+        <div class="hero-inner animate-slide-up">
+          <div class="hero-badges">
+            <span class="badge badge-secondary">16+</span>
+            <span class="badge badge-secondary badge-rating">
+              <svg width="14" height="14"><use href="#icon-star"/></svg>
+              8.5
+            </span>
+            <span class="badge badge-secondary">IMDb 8.8</span>
+          </div>
+          <h1 class="hero-title">Дюна: Частина друга</h1>
+          <div class="hero-meta">
+            <span>2024</span>
+            <span class="dot">&middot;</span>
+            <span>166 хв</span>
+            <span class="dot">&middot;</span>
+            <span>Фантастика, Пригоди, Драма</span>
+          </div>
+          <p class="hero-desc line-clamp-3">Пол Атрейдес обʼєднується з Чані та фрименами, прагнучи помсти змовникам, які знищили його родину. Стоячи перед вибором між коханням свого життя та долею всесвіту, він повинен запобігти жахливому майбутньому.</p>
+          <div class="hero-actions">
+            <a href="watch.html?id=1" class="btn btn-primary btn-lg">
+              <svg width="20" height="20"><use href="#icon-play"/></svg>
+              <span data-i18n="hero.watch">Дивитись</span>
+            </a>
+            <a href="movie.html?id=1" class="btn btn-secondary btn-lg">
+              <svg width="20" height="20"><use href="#icon-info"/></svg>
+              <span data-i18n="hero.description">Опис</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT ROWS  -->
+  <div class="container" style="padding-top:2rem; padding-bottom:3rem;">
+
+    <!-- TOP -->
+    <div class="movie-row" id="top">
+      <div class="movie-row-header">
+        <h2 class="movie-row-title" data-i18n="nav.top">Top 10</h2>
+       <a href="catalog.html?section=top" class="movie-row-link">
+          <span data-i18n="row.view_all">Дивитись все</span>
+          <svg><use href="#icon-chevron-right"/></svg>
+        </a>
+      </div>
+    
+      <div class="movie-row-scroll scrollbar-hide">
+    
+        <a href="movie.html?id=1" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg" alt="Дюна: Частина друга" loading="lazy">
+    
+            <div class="movie-card-overlay">
+              <div class="movie-card-play"><svg><use href="#icon-play"/></svg></div>
+            </div>
+    
+            <span class="movie-card-rating">
+              <svg><use href="#icon-star"/></svg> 8.5
+            </span>
+    
+            <button class="movie-card-bookmark" onclick="event.preventDefault()">
+              <svg><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+    
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Дюна: Частина друга</h3>
+            <div class="movie-card-meta">
+              <span>2024</span>
+              <span class="dot">&middot;</span>
+              <span class="truncate">Фантастика</span>
+            </div>
+          </div>
+        </a>
+    
+        <a href="movie.html?id=2" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg" alt="Опенгеймер" loading="lazy">
+    
+            <div class="movie-card-overlay">
+              <div class="movie-card-play"><svg><use href="#icon-play"/></svg></div>
+            </div>
+    
+            <span class="movie-card-rating">
+              <svg><use href="#icon-star"/></svg> 8.9
+            </span>
+    
+            <button class="movie-card-bookmark" onclick="event.preventDefault()">
+              <svg><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+    
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Опенгеймер</h3>
+            <div class="movie-card-meta">
+              <span>2023</span>
+              <span class="dot">&middot;</span>
+              <span class="truncate">Драма</span>
+            </div>
+          </div>
+        </a>
+    
+        <a href="movie.html?id=3" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg" alt="Бідолашні створіння" loading="lazy">
+    
+            <div class="movie-card-overlay">
+              <div class="movie-card-play"><svg><use href="#icon-play"/></svg></div>
+            </div>
+    
+            <span class="movie-card-rating">
+              <svg><use href="#icon-star"/></svg> 7.8
+            </span>
+    
+            <button class="movie-card-bookmark" onclick="event.preventDefault()">
+              <svg><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+    
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Бідолашні створіння</h3>
+            <div class="movie-card-meta">
+              <span>2023</span>
+              <span class="dot">&middot;</span>
+              <span class="truncate">Фентезі</span>
+            </div>
+          </div>
+        </a>
+    
+        <a href="movie.html?id=4" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" alt="Гладіатор 2" loading="lazy">
+    
+            <div class="movie-card-overlay">
+              <div class="movie-card-play"><svg><use href="#icon-play"/></svg></div>
+            </div>
+    
+            <span class="movie-card-rating">
+              <svg><use href="#icon-star"/></svg> 7.2
+            </span>
+    
+            <button class="movie-card-bookmark" onclick="event.preventDefault()">
+              <svg><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+    
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Гладіатор 2</h3>
+            <div class="movie-card-meta">
+              <span>2024</span>
+              <span class="dot">&middot;</span>
+              <span class="truncate">Бойовик</span>
+            </div>
+          </div>
+        </a>
+    
+        <a href="movie.html?id=5" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="Інтерстеллар" loading="lazy">
+    
+            <div class="movie-card-overlay">
+              <div class="movie-card-play"><svg><use href="#icon-play"/></svg></div>
+            </div>
+    
+            <span class="movie-card-rating">
+              <svg><use href="#icon-star"/></svg> 9.1
+            </span>
+    
+            <button class="movie-card-bookmark" onclick="event.preventDefault()">
+              <svg><use href="#icon-bookmark"/></svg>
+            </button>
+          </div>
+    
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Інтерстеллар</h3>
+            <div class="movie-card-meta">
+              <span>2014</span>
+              <span class="dot">&middot;</span>
+              <span class="truncate">Фантастика</span>
+            </div>
+          </div>
+        </a>
+    
+      </div>
+    </div>
+
+    <!-- Новіи -->
+    <div class="movie-row" id="new">
+      <div class="movie-row-header">
+        <h2 class="movie-row-title" data-i18n="nav.new">Newest</h2>
+       <a href="catalog.html?section=new" class="movie-row-link">
+          Дивитись все
+          <svg><use href="#icon-chevron-right"/></svg>
+        </a>
+      </div>
+      <div class="movie-row-scroll scrollbar-hide">
+        <a href="movie.html?id=7" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/hu40Ber3hZ0QWXhRRJdaQmRomV4.jpg" alt="Носферату" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">1080p</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 7.4</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Носферату</h3>
+            <div class="movie-card-meta"><span>2024</span><span class="dot">&middot;</span><span class="truncate">Жахи</span></div>
+          </div>
+        </a>
+        <a href="movie.html?id=8" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/gKkl37BQuKTanygYQG1pyYgLVgf.jpg" alt="Ворог" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">720p</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 6.8</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Ворог</h3>
+            <div class="movie-card-meta"><span>2024</span><span class="dot">&middot;</span><span class="truncate">Трилер</span></div>
+          </div>
+        </a>
+        <a href="movie.html?id=9" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/oGythE98MYleE6mZlGs5oBGkux1.jpg" alt="Вікінги: Вальгалла" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">1080p</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 7.9</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Вікінги: Вальгалла</h3>
+            <div class="movie-card-meta"><span>2024</span><span class="dot">&middot;</span><span class="truncate">Історія</span></div>
+          </div>
+        </a>
+        <a href="movie.html?id=10" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" alt="Падіння імперії" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">4K</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 6.5</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Падіння імперії</h3>
+            <div class="movie-card-meta"><span>2024</span><span class="dot">&middot;</span><span class="truncate">Фантастика</span></div>
+          </div>
+        </a>
+        <a href="movie.html?id=5" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" alt="Кадр з фільму" loading="lazy">
+            <div class="movie-card-overlay"><div class="movie-card-play"><svg><use href="#icon-play"/></svg></div></div>
+            <span class="movie-card-quality">1080p</span>
+            <span class="movie-card-rating"><svg><use href="#icon-star"/></svg> 8.0</span>
+            <button class="movie-card-bookmark" onclick="event.preventDefault()"><svg><use href="#icon-bookmark"/></svg></button>
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title ">Битва за Землю</h3>
+            <div class="movie-card-meta"><span>2024</span><span class="dot">&middot;</span><span class="truncate">Бойовик</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  
+
+  
+  <div class="movie-row">
+    <div class="movie-row-header">
+      <h2 class="movie-row-title">TEST CONTENT</h2>
+    </div>
+  
+    <div class="movie-row-scroll scrollbar-hide">
+  
+      <!-- 1 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            The Lord of the Rings: The Fellowship of the Ring Extended Director's Cut Remastered Ultra Collector's Edition Version
+          </h3>
+          <div class="movie-card-meta">
+            <span>2001</span>
+            <span class="dot">·</span>
+            <span class="truncate">Fantasy Adventure Drama</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 2 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Interstellar: Journey Beyond the Stars Into the Infinite Universe of Time, Space and Human Survival
+          </h3>
+          <div class="movie-card-meta">
+            <span>2014</span>
+            <span class="dot">·</span>
+            <span class="truncate">Science Fiction Drama Adventure</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 3 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Oppenheimer: The Extraordinary Story of the Man Who Changed the World With the Creation of the Atomic Bomb
+          </h3>
+          <div class="movie-card-meta">
+            <span>2023</span>
+            <span class="dot">·</span>
+            <span class="truncate">Biography History Drama</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 4 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Poor Things: The Unbelievably Strange and Beautiful Adventures of Bella Baxter Across the Entire World
+          </h3>
+          <div class="movie-card-meta">
+            <span>2023</span>
+            <span class="dot">·</span>
+            <span class="truncate">Fantasy Comedy Drama</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 5 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/hu40Ber3hZ0QWXhRRJdaQmRomV4.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Nosferatu: The Dark Gothic Tale of the Ancient Vampire Who Brought Eternal Terror to a Small European Town
+          </h3>
+          <div class="movie-card-meta">
+            <span>2024</span>
+            <span class="dot">·</span>
+            <span class="truncate">Horror Mystery Thriller</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 6 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Gladiator II: The Rise of a New Warrior in the Brutal World of Ancient Roman Empire and Colosseum Battles
+          </h3>
+          <div class="movie-card-meta">
+            <span>2024</span>
+            <span class="dot">·</span>
+            <span class="truncate">Action Historical Drama</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 7 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/oGythE98MYleE6mZlGs5oBGkux1.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Vikings Valhalla: The Epic Saga of Legendary Norse Warriors Exploring and Conquering New Lands
+          </h3>
+          <div class="movie-card-meta">
+            <span>2024</span>
+            <span class="dot">·</span>
+            <span class="truncate">History Adventure Action</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 8 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/gKkl37BQuKTanygYQG1pyYgLVgf.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Enemy: A Psychological Thriller About Identity, Parallel Lives and the Dark Secrets of Human Mind
+          </h3>
+          <div class="movie-card-meta">
+            <span>2013</span>
+            <span class="dot">·</span>
+            <span class="truncate">Thriller Mystery Drama</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 9 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/628Dep6AxEtDxjZoGP78TsOxYbK.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            Dune Part Two: The Monumental Science Fiction Epic About Power, Destiny and the Battle for the Desert Planet Arrakis
+          </h3>
+          <div class="movie-card-meta">
+            <span>2024</span>
+            <span class="dot">·</span>
+            <span class="truncate">Sci-Fi Adventure Drama</span>
+          </div>
+        </div>
+      </a>
+  
+      <!-- 10 -->
+      <a href="#" class="movie-card">
+        <div class="movie-card-poster">
+          <img src="https://image.tmdb.org/t/p/w300/3bhkrj58Vtu7enYsRolD1fZdja1.jpg">
+        </div>
+        <div class="movie-card-info">
+          <h3 class="movie-card-title ">
+            The Incredibly Long and Absurdly Overly Extended Movie Title Designed Only to Test UI Layout Breaking Limits
+          </h3>
+          <div class="movie-card-meta">
+            <span>2022</span>
+            <span class="dot">·</span>
+            <span class="truncate">Comedy Experimental</span>
+          </div>
+        </div>
+      </a>
+  
+    </div>
+  </div>
+
+<div class="movie-row" id="genres">
+    
+      <div class="movie-row-header">
+        <h2 class="movie-row-title" data-i18n="nav.genres">Genres</h2>
+    
+        <!-- View all -->
+        <a href="catalog.html?section=genres" class="movie-row-link">
+          <span data-i18n="row.view_all">Дивитись все</span>
+          <svg><use href="#icon-chevron-right"/></svg>
+        </a>
+      </div>
+    
+      <div class="movie-row-scroll scrollbar-hide">
+    
+        <a href="catalog.html?genre=action" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/qJ2tW6WMUDux911r6m7haRef0WH.jpg" loading="lazy" alt="Action">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.action">Action</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=adventure" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/628Dep6AxEtDxjZoGP78TsOxYbK.jpg" loading="lazy" alt="Adventure">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.adventure">Adventure</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=animation" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" loading="lazy" alt="Animation">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.animation">Animation</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=biography" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg" loading="lazy" alt="Biography">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.biography">Biography</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=comedy" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" loading="lazy" alt="Comedy">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.comedy">Comedy</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=crime" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg" loading="lazy" alt="Crime">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.crime">Crime</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=documentary" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/oGythE98MYleE6mZlGs5oBGkux1.jpg" loading="lazy" alt="Documentary">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.documentary">Documentary</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=drama" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/qhb1qOilapbapxWQn9jtRCMwXJF.jpg" loading="lazy" alt="Drama">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.drama">Drama</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=family" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/hu40Ber3hZ0QWXhRRJdaQmRomV4.jpg" loading="lazy" alt="Family">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.family">Family</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=fantasy" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/6oH378KUfCEitzJkm07r97L0RsZ.jpg" loading="lazy" alt="Fantasy">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.fantasy">Fantasy</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=history" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg" loading="lazy" alt="History">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.history">History</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=horror" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/6oH378KUfCEitzJkm07r97L0RsZ.jpg" loading="lazy" alt="Horror">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.horror">Horror</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=music" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" loading="lazy" alt="Music">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.music">Music</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=mystery" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/gKkl37BQuKTanygYQG1pyYgLVgf.jpg" loading="lazy" alt="Mystery">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.mystery">Mystery</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=romance" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" loading="lazy" alt="Romance">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.romance">Romance</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=scifi" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg" loading="lazy" alt="Sci-Fi">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.scifi">Sci-Fi</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=thriller" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/gKkl37BQuKTanygYQG1pyYgLVgf.jpg" loading="lazy" alt="Thriller">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.thriller">Thriller</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=war" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg" loading="lazy" alt="War">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.war">War</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?genre=western" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg" loading="lazy" alt="Western">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title" data-i18n="genre.western">Western</h3>
+            <div class="movie-card-meta"><span data-i18n="label.genre">Genre</span></div>
+          </div>
+        </a>
+    
+      </div>
+    </div>
+    
+    <div class="movie-row" id="years">
+    
+      <div class="movie-row-header">
+        <h2 class="movie-row-title" data-i18n="nav.years">Years</h2>
+    
+        <a href="catalog.html?section=years" class="movie-row-link">
+          <span data-i18n="row.view_all">Дивитись все</span>
+          <svg><use href="#icon-chevron-right"/></svg>
+        </a>
+      </div>
+    
+      <div class="movie-row-scroll scrollbar-hide">
+    
+        <a href="catalog.html?year=2024" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8b8R8l88Qje9dn9OE8PY05Nez7S.jpg" loading="lazy" alt="2024">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2024</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?year=2023" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg" loading="lazy" alt="2023">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2023</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?year=2022" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/3bhkrj58Vtu7enYsRolD1fZdja1.jpg" loading="lazy" alt="2022">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2022</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?year=2021" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/5YZbUmjbMa3ClvSW1Wj3D6XGolb.jpg" loading="lazy" alt="2021">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2021</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?year=2020" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/qJ2tW6WMUDux911r6m7haRef0WH.jpg" loading="lazy" alt="2020">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2020</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?year=2019" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" loading="lazy" alt="2019">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2019</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+        <a href="catalog.html?year=2018" class="movie-card">
+          <div class="movie-card-poster">
+            <img src="https://image.tmdb.org/t/p/w300/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" loading="lazy" alt="2018">
+          </div>
+          <div class="movie-card-info">
+            <h3 class="movie-card-title">2018</h3>
+            <div class="movie-card-meta"><span data-i18n="label.year">Year</span></div>
+          </div>
+        </a>
+    
+      </div>
+    </div>
+   
+  </div>
+</main>
+
+<!-- FOOTER -->
+<div id="footer-component"></div>
+
+<script src="js/components.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

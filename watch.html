@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дюна: Частина друга — Дивитись — CinemaUA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- SVG Icons -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+  <symbol id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="icon-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="icon-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+  <symbol id="icon-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></symbol>
+  <symbol id="icon-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></symbol>
+  <symbol id="icon-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></symbol>
+  <symbol id="icon-maximize" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="icon-skip-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="19 20 9 12 19 4 19 20"/><line x1="5" x2="5" y1="19" y2="5"/></symbol>
+  <symbol id="icon-skip-forward" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 4 15 12 5 20 5 4"/><line x1="19" x2="19" y1="5" y2="19"/></symbol>
+</svg>
+
+<!-- HEADER T -->
+<div id="header-component"></div>
+
+<main class="main">
+
+  <!-- VIDEO PLAYER -->
+  <div class="player-wrap">
+
+    <video
+      id="videoPlayer"
+      class="video-js vjs-default-skin vjs-big-play-centered"
+      controls
+      preload="auto"
+      poster="https://image.tmdb.org/t/p/original/628Dep6AxEtDxjZoGP78TsOxYbK.jpg"
+      data-setup='{}'
+    >
+      <source 
+        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" 
+        type="video/mp4"
+      >
+
+      <!-- пример субтитров -->
+      <track 
+        kind="subtitles" 
+        src="subtitles.vtt" 
+        srclang="uk" 
+        label="Українська"
+      >
+    </video>
+
+  </div>
+
+
+  <!-- WATCH INFO -->
+  <div class="container py-6 space-y-6">
+
+    <div class="watch-info">
+
+      <div>
+
+        <a href="movie.html?id=1" class="watch-back">
+          <svg><use href="#icon-arrow-left"/></svg>
+          Дюна: Частина друга
+        </a>
+
+        <h1 class="watch-title">
+          Дюна: Частина друга
+        </h1>
+
+        <div class="watch-meta">
+          <span>2024</span>
+          <span class="dot">&middot;</span>
+          <span>166 хв</span>
+          <span class="dot">&middot;</span>
+          <span class="quality">1080p</span>
+        </div>
+
+      </div>
+
+
+      <div class="watch-actions">
+
+        <button class="btn btn-ghost btn-icon" onclick="addBookmark(1)">
+          <svg width="20" height="20">
+            <use href="#icon-bookmark"/>
+          </svg>
+        </button>
+
+        <button class="btn btn-ghost btn-icon" onclick="shareMovie(1)">
+          <svg width="20" height="20">
+            <use href="#icon-share"/>
+          </svg>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<div id="footer-component"></div>
+
+
+
+<script src="js/components.js"></script>
+<script src="js/i18n.js"></script>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+<script>
+
+const player = videojs('videoPlayer', {
+  fluid: true,
+  playbackRates: [0.5, 1, 1.25, 1.5, 2],
+  controlBar: {
+    volumePanel: {
+      inline: false
+    }
+  }
+});
+
+function addBookmark(id) {
+  // backend endpoint
+  // POST /api/bookmarks
+}
+
+function shareMovie(id) {
+
+  if (navigator.share) {
+    navigator.share({
+      url: location.href
+    })
+  } 
+  else {
+    navigator.clipboard.writeText(location.href)
+  }
+
+}
+
+</script>
+
+
+<script src="js/components.js"></script>
+<script src="js/i18n.js"></script>
+<script>
+const video = document.getElementById('videoPlayer');
+const playOverlay = document.getElementById('playOverlay');
+const progressFill = document.getElementById('progressFill');
+const playerTime = document.getElementById('playerTime');
+
+function togglePlay() {
+  if (video.paused) { video.play(); playOverlay.style.display = 'none'; }
+  else { video.pause(); playOverlay.style.display = 'flex'; }
+}
+function toggleMute() { video.muted = !video.muted; }
+function goFullscreen() { const w = document.querySelector('.player-wrap'); if (w.requestFullscreen) w.requestFullscreen(); }
+function seekVideo(e) { const bar = document.getElementById('progressBar'); const r = bar.getBoundingClientRect(); video.currentTime = ((e.clientX - r.left) / r.width) * video.duration; }
+function formatTime(s) { const m = Math.floor(s/60); const sec = Math.floor(s%60); return m+':'+(sec<10?'0':'')+sec; }
+video.addEventListener('timeupdate', () => { if(video.duration){progressFill.style.width=(video.currentTime/video.duration*100)+'%';playerTime.textContent=formatTime(video.currentTime)+' / '+formatTime(video.duration)} });
+video.addEventListener('play', () => { playOverlay.style.display = 'none'; });
+video.addEventListener('pause', () => { playOverlay.style.display = 'flex'; });
+video.addEventListener('click', togglePlay);
+
+function addBookmark(id) { /* POST /api/bookmarks */ }
+function shareMovie(id) { if(navigator.share)navigator.share({url:location.href});else navigator.clipboard.writeText(location.href) }
+</script>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+</body>
+</html>

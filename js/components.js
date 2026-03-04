@@ -50,12 +50,19 @@ const navLinks = [
   </div>
 
   <div class="search-bar" id="searchBar" style="display:none">
-    <div class="container">
+    
       <form action="search.html" method="get" class="search-bar-wrap">
         <svg><use href="#icon-search"/></svg>
-        <input type="text" name="q" class="search-bar-input" placeholder="Пошук фільмів, серіалів..." autofocus>
+        <input 
+          type="text"
+          name="q"
+          class="search-bar-input"
+          data-i18n="search.placeholder"
+          placeholder="Пошук"
+          autofocus
+        >
       </form>
-    </div>
+   
   </div>
 
   <div class="mobile-menu" id="mobileMenu">

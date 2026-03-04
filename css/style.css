@@ -1120,3 +1120,6 @@ border:0;
   transform:translate(-50%,-50%);
   pointer-events:none;
 }
+.movie-detail{
+  margin-top:80px;
+}
